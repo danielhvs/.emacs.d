@@ -14,7 +14,6 @@
 ;; (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 ;;                          ("marmalade" . "http://marmalade-repo.org/packages/")
 ;;                          ("melpa" . "http://melpa-stable.milkbox.net/packages/")))
-
 (add-to-list 'load-path "~/.emacs.d/evil")
 (require 'evil)
 (evil-mode 1)
@@ -23,7 +22,6 @@
 ;; packages are loaded before you start trying to modify them.
 ;; This also sets the load path.
 (package-initialize)
-
 
 ;; Download the ELPA archive description if needed.
 ;; This informs Emacs about the latest versions of all packages, and
@@ -49,9 +47,6 @@
     ;; integration with a Clojure REPL
     ;; https://github.com/clojure-emacs/cider
     cider
-
-    ;; evil mode: vim
-    ;;evil
 
     ;; allow ido usage in as many contexts as possible. see
     ;; customizations/navigation.el line 23 for a description
@@ -112,6 +107,19 @@
 ;; Add a directory to our load path so that when you `load` things
 ;; below, Emacs knows where to look for the corresponding file.
 (add-to-list 'load-path "~/.emacs.d/customizations")
+(add-to-list 'load-path "~/.emacs.d/org-9.0.1")
+(add-to-list 'load-path "~/.emacs.d/org-9.0.1/contrib/lisp" t)
+
+(require 'buffer-move)
+
+
+;; daniel habib
+(global-set-key (kbd "<C-S-up>")     'buf-move-up)
+(global-set-key (kbd "<C-S-down>")   'buf-move-down)
+(global-set-key (kbd "<C-S-left>")   'buf-move-left)
+(global-set-key (kbd "<C-S-right>")  'buf-move-right)
+
+;; fim daniel habib
 
 ;; Sets up exec-path-from-shell so that Emacs will use the correct
 ;; environment variables
@@ -137,6 +145,14 @@
 ;; Langauage-specific
 (load "setup-clojure.el")
 (load "setup-js.el")
+(load "buffer-move.el")
+
+(setq org-src-fontify-natively t)
+
+;; danielhabib
+(add-to-list 'load-path "~/.emacs.d/dirtree")
+(require 'dirtree)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
