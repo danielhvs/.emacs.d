@@ -79,3 +79,9 @@
 ;; (set-face-background 'hl-line "#3e4446")
 ;(set-face-background 'hl-line "#161616")
 ;(set-face-foreground 'highlight nil)
+(visual-line-mode 1)
+
+; There is a global option to prevent splits from being opened:
+(setq pop-up-windows nil)
+
+;; fim daniel habib
