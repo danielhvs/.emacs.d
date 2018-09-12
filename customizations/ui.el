@@ -84,4 +84,6 @@
 ; There is a global option to prevent splits from being opened:
 (setq pop-up-windows nil)
 
+(setq column-number-mode t)
+
 ;; fim daniel habib
