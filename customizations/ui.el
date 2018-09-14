@@ -86,4 +86,6 @@
 
 (setq column-number-mode t)
 
+(global-set-key [(control x) (k)] 'kill-this-buffer)
+
 ;; fim daniel habib
