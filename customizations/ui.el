@@ -88,4 +88,6 @@
 
 (global-set-key [(control x) (k)] 'kill-this-buffer)
 
+(global-auto-revert-mode t)
+
 ;; fim daniel habib
