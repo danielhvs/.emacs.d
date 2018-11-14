@@ -10,8 +10,3 @@
 
 ;; Go straight to scratch buffer on startup
 (setq inhibit-startup-message t)
-
-(setq url-proxy-services
-   '(("http" . "http://127.0.0.1:3128")
-     ("https" . "https://127.0.0.1:3128")
-     ("socks" . "socks://127.0.0.1:3128")))

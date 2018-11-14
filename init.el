@@ -36,6 +36,9 @@
   '(;; makes handling lisp expressions much, much easier
     ;; Cheatsheet: http://www.emacswiki.org/emacs/PareditCheatsheet
     paredit
+    
+    ;; danielhabib auto-completion
+    company
 
     ;; key bindings and code colorization for Clojure
     ;; https://github.com/clojure-emacs/clojure-mode
@@ -149,9 +152,10 @@
 
 (setq org-src-fontify-natively t)
 
-;; danielhabib
+;; danielhabib init
 (add-to-list 'load-path "~/.emacs.d/dirtree")
 (require 'dirtree)
+(require 'company)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -167,3 +171,14 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(global-company-mode)
+(global-set-key (kbd "TAB") #'company-indent-or-complete-common)
+
+;; fuzzy! nao funcionou...
+;; (add-hook 'cider-repl-mode-hook #'company-mode)
+;; (add-hook 'cider-mode-hook #'company-mode)
+;; (add-hook 'cider-repl-mode-hook #'cider-company-enable-fuzzy-completion)
+;; (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
+
+;; danielhabib end
