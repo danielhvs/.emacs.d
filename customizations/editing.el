@@ -52,7 +52,7 @@
 (global-set-key (kbd "C-;") 'toggle-comment-on-line)
 
 ;; yay rainbows!
-(global-rainbow-delimiters-mode t)
+;(global-rainbow-delimiters-mode t)
 
 ;; use 2 spaces for tabs
 (defun die-tabs ()
@@ -73,4 +73,5 @@
 
 ;; danielhabib isso ou entao C-x 8 RET RET para usar portugês
 ;;(require 'iso-transl)
+(evil-mode 1)
 
