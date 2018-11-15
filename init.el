@@ -11,10 +11,6 @@
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
 
-(add-to-list 'load-path "~/.emacs.d/evil")
-(require 'evil)
-(evil-mode 1)
-
 ;; Load and activate emacs packages. Do this first so that the
 ;; packages are loaded before you start trying to modify them.
 ;; This also sets the load path.
@@ -36,6 +32,9 @@
     
     ;; danielhabib auto-completion
     company
+
+    ;; danielhabib vim
+    evil
 
     ;; key bindings and code colorization for Clojure
     ;; https://github.com/clojure-emacs/clojure-mode
@@ -153,15 +152,20 @@
 (add-to-list 'load-path "~/.emacs.d/dirtree")
 (require 'dirtree)
 (require 'company)
+(evil-mode 1)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
+ '(ansi-color-names-vector
+   ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
  '(coffee-tab-width 2)
- '(custom-enabled-themes (quote (wheatgrass))))
+ '(custom-enabled-themes (quote (wheatgrass)))
+ '(package-selected-packages
+   (quote
+    (evil tagedit smex rainbow-delimiters projectile paredit magit ido-ubiquitous exec-path-from-shell company clojure-mode-extra-font-locking cider))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
