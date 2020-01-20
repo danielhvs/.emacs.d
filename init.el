@@ -109,8 +109,6 @@
 (add-to-list 'load-path "~/.emacs.d/org-9.0.1")
 (add-to-list 'load-path "~/.emacs.d/org-9.0.1/contrib/lisp" t)
 
-(require 'buffer-move)
-
 
 ;; daniel habib
 (global-set-key (kbd "<C-S-up>")     'buf-move-up)
@@ -144,7 +142,6 @@
 ;; Langauage-specific
 (load "setup-clojure.el")
 (load "setup-js.el")
-(load "buffer-move.el")
 
 (setq org-src-fontify-natively t)
 
