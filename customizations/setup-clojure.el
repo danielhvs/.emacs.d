@@ -32,6 +32,7 @@
 ;; provides minibuffer documentation for the code you're typing into the repl
 (add-hook 'cider-mode-hook 'eldoc-mode)
 (define-key clojure-mode-map (kbd "<f3>") 'cider-find-var)
+(define-key clojure-mode-map (kbd "<f2>") 'cider-pop-back)
 
 ;; go right to the REPL buffer when it's finished connecting
 (setq cider-repl-pop-to-buffer-on-connect nil)
