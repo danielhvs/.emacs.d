@@ -109,7 +109,6 @@
 (add-to-list 'load-path "~/.emacs.d/org-9.0.1")
 (add-to-list 'load-path "~/.emacs.d/org-9.0.1/contrib/lisp" t)
 
-
 ;; daniel habib
 (global-set-key (kbd "<C-S-up>")     'buf-move-up)
 (global-set-key (kbd "<C-S-down>")   'buf-move-down)
@@ -160,9 +159,10 @@
    ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
  '(coffee-tab-width 2)
  '(custom-enabled-themes (quote (deeper-blue)))
+ '(org-agenda-files (quote ("~/dtp/extras.org")))
  '(package-selected-packages
    (quote
-    (evil tagedit smex rainbow-delimiters projectile paredit magit ido-ubiquitous exec-path-from-shell company clojure-mode-extra-font-locking cider))))
+    (linum-relative evil tagedit smex rainbow-delimiters projectile paredit magit ido-ubiquitous exec-path-from-shell company clojure-mode-extra-font-locking cider))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
