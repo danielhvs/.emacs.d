@@ -25,6 +25,9 @@
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
+(global-set-key (kbd "C-w") 'paredit-forward)
+(global-set-key (kbd "C-b") 'paredit-backward)
+
 ;; Don't use hard tabs
 (setq-default indent-tabs-mode nil)
 
@@ -51,9 +54,6 @@
   (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
 (global-set-key (kbd "C-;") 'toggle-comment-on-line)
 
-;; yay rainbows!
-;; (global-rainbow-delimiters-mode t)
-
 ;; use 2 spaces for tabs
 (defun die-tabs ()
   (interactive)
@@ -75,3 +75,4 @@
 ;;(require 'iso-transl)
 (evil-mode 1)
 
+(setq display-line-numbers 'relative)

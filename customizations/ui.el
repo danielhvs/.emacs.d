@@ -8,7 +8,8 @@
 (menu-bar-mode -1)
 
 ;; Show line numbers
-(global-linum-mode)
+;; (linum-relative-mode t)
+(linum-relative-global-mode)
 
 ;; You can uncomment this to remove the graphical toolbar at the top. After
 ;; awhile, you won't need the toolbar.
@@ -72,11 +73,11 @@
 ;(setq-default cursor-type 'bar)
 ;(set-cursor-color "#00FF00")
 
-(global-hl-line-mode 1)
+;; (global-hl-line-mode 1)
 ;; (set-face-background 'hl-line "#3e4446")
 ;(set-face-background 'hl-line "#161616")
 ;(set-face-foreground 'highlight nil)
-(visual-line-mode 1)
+;; (visual-line-mode 1)
 
 ; There is a global option to prevent splits from being opened:
 (setq pop-up-windows nil)
