@@ -93,3 +93,10 @@
 ;; daniel
 (global-set-key (kbd "C-SPC") #'cider-doc)
 (setq cider-prompt-for-symbol nil)
+
+(setq cider-test-show-report-on-success t)
+
+(with-eval-after-load 'evil
+    (defalias #'forward-evil-word #'forward-evil-symbol)
+    ;; make evil-search-word look for symbol rather than word boundaries
+    (setq-default evil-symbol-word-search t))
