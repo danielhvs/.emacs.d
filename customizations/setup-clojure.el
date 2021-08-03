@@ -100,3 +100,9 @@
     (defalias #'forward-evil-word #'forward-evil-symbol)
     ;; make evil-search-word look for symbol rather than word boundaries
     (setq-default evil-symbol-word-search t))
+
+(defun identa-clj ()
+  "Identa clojure usando node"
+  (shell-command-to-string (format "/home/danielhabib/.nvm/versions/node/v15.9.0/bin/cljfmt %s" buffer-file-name)))
+
+(add-hook 'after-save-hook #'identa-clj)
