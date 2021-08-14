@@ -2,14 +2,17 @@
 ;; Packages
 ;;;;
 
+(setq byte-compile-warnings '(cl-functions))
 ;; Define package repositories
 (require 'package)
+;; (add-to-list 'package-archives
+             ;; '("marmalade" . "http://marmalade-repo.org/packages/") t)
+; (add-to-list 'package-archives
+;              '("tromey" . "http://tromey.com/elpa/") t)
+;; (add-to-list 'package-archives
+             ;; '("melpa" . "http://melpa.org/packages/") t)
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives
-             '("tromey" . "http://tromey.com/elpa/") t)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 ;; Load and activate emacs packages. Do this first so that the
 ;; packages are loaded before you start trying to modify them.
@@ -158,11 +161,10 @@
  '(ansi-color-names-vector
    ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
  '(coffee-tab-width 2)
- '(custom-enabled-themes (quote (deeper-blue)))
- '(org-agenda-files (quote ("~/dtp/extras.org")))
+ '(custom-enabled-themes '(deeper-blue))
+ '(org-agenda-files '("~/dtp/extras.org"))
  '(package-selected-packages
-   (quote
-    (linum-relative evil tagedit smex rainbow-delimiters projectile paredit magit ido-ubiquitous exec-path-from-shell company clojure-mode-extra-font-locking cider))))
+   '(cider linum-relative evil tagedit smex rainbow-delimiters projectile paredit magit ido-ubiquitous exec-path-from-shell company clojure-mode-extra-font-locking)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

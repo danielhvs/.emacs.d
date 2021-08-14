@@ -56,33 +56,7 @@
 (add-to-list 'auto-mode-alist '("\\.cljs.*$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("lein-env" . enh-ruby-mode))
 
-
 ;; key bindings
-;; these help me out with the way I usually develop web apps
-(defun cider-start-http-server ()
-  (interactive)
-  (cider-load-current-buffer)
-  (let ((ns (cider-current-ns)))
-    (cider-repl-set-ns ns)
-    (cider-interactive-eval (format "(println '(def server (%s/start))) (println 'server)" ns))
-    (cider-interactive-eval (format "(def server (%s/start)) (println server)" ns))))
-
-
-(defun cider-refresh ()
-  (interactive)
-  (cider-interactive-eval (format "(user/reset)")))
-
-(defun cider-user-ns ()
-  (interactive)
-  (cider-repl-set-ns "user"))
-
-(eval-after-load 'cider
-  '(progn
-     (define-key clojure-mode-map (kbd "C-c C-v") 'cider-start-http-server)
-     (define-key clojure-mode-map (kbd "C-M-r") 'cider-refresh)
-     (define-key clojure-mode-map (kbd "C-c u") 'cider-user-ns)
-     (define-key cider-mode-map (kbd "C-c u") 'cider-user-ns)))
-
 (add-hook 'cider-repl-mode-hook #'company-mode)
 (add-hook 'cider-mode-hook #'company-mode)
 (global-set-key (kbd "TAB") #'company-indent-or-complete-common)
@@ -97,12 +71,32 @@
 (setq cider-test-show-report-on-success t)
 
 (with-eval-after-load 'evil
-    (defalias #'forward-evil-word #'forward-evil-symbol)
-    ;; make evil-search-word look for symbol rather than word boundaries
-    (setq-default evil-symbol-word-search t))
+  (defalias #'forward-evil-word #'forward-evil-symbol)
+  ;; make evil-search-word look for symbol rather than word boundaries
+  (setq-default evil-symbol-word-search t))
 
-(defun identa-clj ()
-  "Identa clojure usando node"
-  (shell-command-to-string (format "/home/danielhabib/.nvm/versions/node/v15.9.0/bin/cljfmt %s" buffer-file-name)))
+;; (defun identa-clj ()
+;; "Identa clojure usando node"
+;; (shell-command-to-string (format "/home/danielhabib/.nvm/versions/node/v15.9.0/bin/cljfmt --edn=/home/danielhabib/.config/cljfmt/options.edn %s" buffer-file-name)))
 
-(add-hook 'after-save-hook #'identa-clj)
+;; (defun save-and-indent ()
+  ;; "indent while save buffer"
+  ;; (interactive)
+  ;; (save-excursion
+    ;; (indent-region (point-min) (point-max))
+    ;; nil)
+  ;; (save-buffer))
+
+(defun save-and-indent ()
+  "indent while save buffer"
+  (interactive)
+  (save-buffer)
+  (cider-format-buffer)
+  (save-buffer))
+
+(global-set-key (kbd "C-x C-s") 'save-and-indent) 
+
+(cider-auto-test-mode 1)
+
+(global-set-key (kbd "C-M-h") 'cider-xref-fn-refs) 
+
